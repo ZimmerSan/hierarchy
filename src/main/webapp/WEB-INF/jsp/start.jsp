@@ -1,4 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,48 +10,52 @@
 </head>
 <body>
 <div class="container">
-    <div class="text-center">
-            <h3>Enter The Problem Details</h3>
+    <div class="demo-headline">
+        <h1 class="demo-logo">
+            <spring:message code="program.title"/>
+            <small><spring:message code="program.description"/></small>
+        </h1>
+    </div> <!-- /demo-headline -->
 
-            <form:form method="POST" action="/" modelAttribute="problem">
-                <table>
-                    <tr>
-                        <td><form:label path="name">Name</form:label></td>
-                        <td><form:input path="name" class="form-control"/></td>
-                    </tr>
-                    <tr>
-                        <td><form:label path="factorsCount">Number of factors</form:label></td>
-                        <td><form:input path="factorsCount" class="form-control"/></td>
-                    </tr>
-                    <tr>
-                        <td><form:label path="alternativesCount">Number of alternatives</form:label></td>
-                        <td><form:input path="alternativesCount" class="form-control"/></td>
-                    </tr>
-                    <tr>
-                        <td><input type="submit" class="btn btn-primary" value="Submit"/></td>
-                    </tr>
-                </table>
-            </form:form>
-        </span>
+    <div class="row">
+        <div class="col-10">
+            <h1 class="demo-section-title"><spring:message code="problem.details.enter.header"/></h1>
+        </div>
+        <div class="col-2 text-right">
+            <button class="btn btn-success"><span class="fui-clip"></span> <spring:message code="button.upload"/></button>
+        </div>
     </div>
+    <h1 class="demo-panel-title"><spring:message code="problem.data.basic"/></h1>
 
-    <%--<h3>Enter The Problem Details</h3>--%>
-    <%--<form:form method="POST" action="/" modelAttribute="problem">--%>
-        <%--<table>--%>
-            <%--<tr>--%>
-                <%--<td><form:label path="name">Name</form:label></td>--%>
-                <%--<td><form:input path="name"/></td>--%>
-            <%--</tr>--%>
-            <%--<tr>--%>
-                <%--<td><form:label path="factorsCount">Number of factors</form:label></td>--%>
-                <%--<td><form:input path="factorsCount"/></td>--%>
-            <%--</tr>--%>
-            <%--<tr>--%>
-                <%--<td><input type="submit" value="Submit"/></td>--%>
-            <%--</tr>--%>
-        <%--</table>--%>
-    <%--</form:form>--%>
-    </div>
+    <form:form method="POST" action="/" modelAttribute="problem">
+        <div class="form-group row">
+            <div class="col-6">
+                <div class="form-group">
+                    <p><spring:message code="problem.name"/>:</p>
+                    <form:input path="name" class="form-control"/>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="form-group">
+                    <p><spring:message code="problem.factorsCount"/>:</p>
+                    <form:input path="factorsCount" class="form-control"/>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="form-group">
+                    <p><spring:message code="problem.alternativesCount"/>:</p>
+                    <form:input path="alternativesCount" class="form-control"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 text-center">
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary" value="Submit"/>
+                </div>
+            </div>
+        </div>
+    </form:form>
 </div>
 <%@ include file="parts/scripts.jsp" %>
 </body>

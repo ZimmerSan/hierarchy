@@ -1,7 +1,6 @@
 package com.primat.hierarchy.controller;
 
 import com.primat.hierarchy.dto.MatrixForm;
-import com.primat.hierarchy.model.Alternative;
 import com.primat.hierarchy.model.Factor;
 import com.primat.hierarchy.model.Problem;
 import com.primat.hierarchy.service.HelperService;
@@ -16,8 +15,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Optional;
 
 @Controller("/")
@@ -28,7 +25,7 @@ public class MainController {
     private Problem problem = initProblem();
 
     private Problem initProblem() {
-        return new Problem();
+        return HelperService.initProblem();
     }
 
     @GetMapping("/")
