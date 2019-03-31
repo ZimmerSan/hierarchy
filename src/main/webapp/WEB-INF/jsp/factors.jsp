@@ -35,7 +35,9 @@
             <h1 class="demo-section-title"><spring:message code="problem.details.enter.header"/></h1>
         </div>
         <div class="col-2 text-right">
-            <button class="btn btn-info"><span class="fui-folder"></span> <spring:message code="button.download"/></button>
+            <form:form method="POST" action="saveInfoToFile" modelAttribute="form">
+            	<button class="btn btn-info"><span class="fui-folder"></span> <spring:message code="button.download"/></button>
+            </form:form>
         </div>
     </div>
     <h1 class="demo-panel-title"><spring:message code="problem.factors"/></h1>

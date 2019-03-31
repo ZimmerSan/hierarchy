@@ -21,9 +21,12 @@
         <div class="col-10">
             <h1 class="demo-section-title"><spring:message code="problem.details.enter.header"/></h1>
         </div>
-        <div class="col-2 text-right">
-            <button class="btn btn-success"><span class="fui-clip"></span> <spring:message code="button.upload"/></button>
-        </div>
+        	<div class="col-2 text-right">
+        		<button class="btn btn-success" id="downloadFile"><span class="fui-clip"></span><spring:message code="button.upload"/></button>
+        		<form:form method="POST" id="submitFile" action="getInfoAboutFile">
+        			<input type="file" id="readFile" style="display:none" name="file"/>
+        		</form:form>
+        	</div>
     </div>
     <h1 class="demo-panel-title"><spring:message code="problem.data.basic"/></h1>
 
@@ -32,19 +35,19 @@
             <div class="col-6">
                 <div class="form-group">
                     <p><spring:message code="problem.name"/>:</p>
-                    <form:input path="name" class="form-control"/>
+                    <form:input path="name" name="name" class="form-control"/>
                 </div>
             </div>
             <div class="col-3">
                 <div class="form-group">
                     <p><spring:message code="problem.factorsCount"/>:</p>
-                    <form:input path="factorsCount" class="form-control"/>
+                    <form:input path="factorsCount" name="factorsCount" class="form-control"/>
                 </div>
             </div>
             <div class="col-3">
                 <div class="form-group">
                     <p><spring:message code="problem.alternativesCount"/>:</p>
-                    <form:input path="alternativesCount" class="form-control"/>
+                    <form:input path="alternativesCount" name="alternativesCount" class="form-control"/>
                 </div>
             </div>
         </div>

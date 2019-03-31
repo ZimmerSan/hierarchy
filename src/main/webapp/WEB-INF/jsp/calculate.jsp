@@ -64,7 +64,7 @@
                 <tr>
                     <td class="font-italic text-danger"><i>Criteria Priority</i></td>
                     <c:forEach items="${problem.getPrioritiesVector('FACTORS')}" var="priority">
-                        <td class="font-italic text-danger">${priority}</td>
+                        <td class="font-italic text-danger">${Math.floor(priority* 10000)/10000}</td>
                     </c:forEach>
                     <td class="text-primary font-weight-bold">Global Priority</td>
                 </tr>
@@ -72,9 +72,9 @@
                     <tr>
                         <td class="font-italic font-weight-bold">${alternative.name}</td>
                         <c:forEach items="${problem.factors}" var="factor" varStatus="x_status">
-                            <td>${matrix[x_status.index][y_status.index]}</td>
+                            <td>${Math.floor(matrix[x_status.index][y_status.index] * 10000) / 10000}</td>
                         </c:forEach>
-                        <td class="text-primary font-weight-bold">${globalPriorities[y_status.index]}</td>
+                        <td class="text-primary font-weight-bold">${Math.floor(globalPriorities[y_status.index] * 10000) / 10000}</td>
                     </tr>
                 </c:forEach>
             </table>
@@ -88,7 +88,9 @@
             <h1 class="demo-section-title"><spring:message code="problem.details.submitted.header"/></h1>
         </div>
         <div class="col-2 text-right">
-            <button class="btn btn-info"><span class="fui-folder"></span> <spring:message code="button.download"/></button>
+        	<form:form method="POST" action="saveInfoToFile" modelAttribute="form">
+            	<button class="btn btn-info"><span class="fui-folder"></span> <spring:message code="button.download"/></button>
+            </form:form>
         </div>
     </div>
     <div class="row">

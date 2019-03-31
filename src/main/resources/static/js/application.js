@@ -35,6 +35,20 @@ String.prototype.repeat = function (num) {
     if ($('[data-toggle="select"]').length) {
       $('[data-toggle="select"]').select2();
     }
+    
+    $('#downloadFile').click(function(){
+    	$("#readFile").trigger('click');
+    })
+    
+    $("#readFile").change(function() {
+    	$("#submitFile").submit();
+    });
+    
+    $("input[name='matrix[0]']").change(function() {
+    	var split = this.value.split('/');
+    	if(split.length === 2) this.value = split[0]/split[1];
+    	
+    });
 
     // Checkboxes and Radiobuttons
 
